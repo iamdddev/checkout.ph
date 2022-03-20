@@ -10,8 +10,6 @@ export interface INavigation {
 }
 
 export type AppStructureProps = {
-    content?: React.ReactElement,
-    aside?: React.ReactElement,
     sidebarNavigation: INavigation[]
     onNavigate: (path: string) => void
     topbar?: React.ReactElement

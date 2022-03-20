@@ -8,6 +8,7 @@ import "./index.css";
 
 const UserDashboard = React.lazy(() => import("./containers/UserDashboard"));
 const UserProducts = React.lazy(() => import("./containers/UserProducts"));
+const Account = React.lazy(() => import("./containers/Account"));
 const UserPreferences = React.lazy(
   () => import("./containers/UserPreferences")
 );
@@ -26,6 +27,7 @@ function App() {
               <Route path="/" element={<UserDashboard />} />
               <Route path="/products" element={<UserProducts />} />
               <Route path="/preferences" element={<UserPreferences />} />
+              <Route path="/account" element={<Account />} />
             </Routes>
           </React.Suspense>
         </PageWrapper>

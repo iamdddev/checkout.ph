@@ -1,17 +1,6 @@
 import { Fragment, useState, FC } from "react";
-import { Dialog, Menu, Transition } from "@headlessui/react";
-import {
-  CogIcon,
-  CollectionIcon,
-  HomeIcon,
-  MenuAlt2Icon,
-  PhotographIcon,
-  PlusSmIcon,
-  UserGroupIcon,
-  ViewGridIcon,
-  XIcon,
-} from "@heroicons/react/outline";
-import { SearchIcon } from "@heroicons/react/solid";
+import { Dialog, Transition } from "@headlessui/react";
+import { MenuAlt2Icon, XIcon } from "@heroicons/react/outline";
 import { AppStructureProps } from ".";
 
 function classNames(...classes: any) {
@@ -20,8 +9,6 @@ function classNames(...classes: any) {
 
 export const AppStructure: FC<AppStructureProps> = ({
   children,
-  content,
-  aside,
   sidebarNavigation,
   onNavigate,
   topbar,
@@ -180,29 +167,7 @@ export const AppStructure: FC<AppStructureProps> = ({
               {topbar}
             </div>
           </header>
-
-          {/* Main content */}
-          <div className="flex-1 flex items-stretch overflow-hidden">
-            <main className="flex-1 overflow-y-auto">
-              {/* Primary column */}
-              <section
-                aria-labelledby="primary-heading"
-                className="min-w-0 flex-1 h-full flex flex-col lg:order-last"
-              >
-                <h1 id="primary-heading" className="sr-only">
-                  Photos
-                </h1>
-                {children && !content && children}
-                {content && !children && content}
-              </section>
-            </main>
-
-            {aside && (
-              <aside className="hidden w-96 bg-white border-l border-gray-200 overflow-y-auto lg:block">
-                {aside}
-              </aside>
-            )}
-          </div>
+          {children}
         </div>
       </div>
     </div>

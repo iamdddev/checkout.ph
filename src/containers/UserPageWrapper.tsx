@@ -40,6 +40,8 @@ export const UserPageWrapper: React.FC = ({ children }): React.ReactElement => {
     </button>
   );
 
+  const myAccountAction = () => navigate("/account");
+
   return (
     <AppStructure
       sidebarNavigation={navigations}
@@ -49,7 +51,7 @@ export const UserPageWrapper: React.FC = ({ children }): React.ReactElement => {
           actions={[
             <UserMenu
               items={[
-                { name: "My Account", onAction: () => null },
+                { name: "My Account", onAction: myAccountAction },
                 { name: "Logout", onAction: logout },
               ]}
             />,
