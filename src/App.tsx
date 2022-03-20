@@ -1,6 +1,7 @@
 import * as React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Loading from "./components/Loading";
+import Authentication from "./containers/Authentication";
 import CustomerPageWrapper from "./containers/CustomerPageWrapper";
 import UserPageWrapper from "./containers/UserPageWrapper";
 import "./index.css";
@@ -18,15 +19,17 @@ function App() {
 
   return (
     <Router>
-      <PageWrapper>
-        <React.Suspense fallback={<Loading />}>
-          <Routes>
-            <Route path="/" element={<UserDashboard />} />
-            <Route path="/products" element={<UserProducts />} />
-            <Route path="/preferences" element={<UserPreferences />} />
-          </Routes>
-        </React.Suspense>
-      </PageWrapper>
+      <Authentication>
+        <PageWrapper>
+          <React.Suspense fallback={<Loading />}>
+            <Routes>
+              <Route path="/" element={<UserDashboard />} />
+              <Route path="/products" element={<UserProducts />} />
+              <Route path="/preferences" element={<UserPreferences />} />
+            </Routes>
+          </React.Suspense>
+        </PageWrapper>
+      </Authentication>
     </Router>
   );
 }

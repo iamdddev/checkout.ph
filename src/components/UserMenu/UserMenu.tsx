@@ -35,6 +35,7 @@ export const UserMenu: React.FC<UserMenuProps> = ({
             <Menu.Item key={item.name}>
               {({ active }) => (
                 <a
+                  key={item.name}
                   href="javascript:void(0)"
                   onClick={item.onAction}
                   className={classNames(
