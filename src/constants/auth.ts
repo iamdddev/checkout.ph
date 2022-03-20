@@ -1,4 +1,0 @@
-export enum AUTH_PROVIDERS {
-    FACEBOOK = "FACEBOOK",
-    GOOGLE = "GOOGLE"
-} 

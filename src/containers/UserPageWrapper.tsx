@@ -1,4 +1,5 @@
 import React from "react";
+import { signOut } from "firebase/auth";
 import {
   HomeIcon,
   ViewGridIcon,
@@ -13,6 +14,8 @@ import AppTopbar from "../components/AppTopbar";
 import UserMenu from "../components/UserMenu";
 import Search from "../components/Search";
 
+import { auth } from "../config/firebase";
+
 const sidebarNavigation = [
   { name: "Dashboard", path: "/", icon: HomeIcon, current: true },
   { name: "Orders", path: "/orders", icon: ViewGridIcon, current: false },
@@ -22,6 +25,10 @@ const sidebarNavigation = [
 
 export const UserPageWrapper: React.FC = ({ children }): React.ReactElement => {
   const { navigations, navigate } = useNavigation(sidebarNavigation);
+
+  const logout = () => {
+    signOut(auth);
+  };
 
   const AddProductButton = (
     <button
@@ -40,7 +47,12 @@ export const UserPageWrapper: React.FC = ({ children }): React.ReactElement => {
       topbar={
         <AppTopbar
           actions={[
-            <UserMenu items={[{ name: "My Account", onAction: () => null }]} />,
+            <UserMenu
+              items={[
+                { name: "My Account", onAction: () => null },
+                { name: "Logout", onAction: logout },
+              ]}
+            />,
             AddProductButton,
           ]}
         >
